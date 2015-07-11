@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.afsoftwarestudios.cdinterview" version="1.0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <!--VERSION NUMBER-->
+    <!--[Major-Update].[Minor-Update].[Major-BugFix].[Build-Number]-->
+    <name>CDInterveiw</name>
+    <description>
+        A sample Apache Cordova based application in Android that I created for my interview process at CouponDunia.
+    </description>
+    <author email="aaronfurtado93@yahoo.com" href="">
+        Aaron Furtado
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+</widget>
