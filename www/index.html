@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://staging.couponapitest.com https://www.hdfcergo.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://staging.couponapitest.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -45,19 +45,29 @@
         <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.css">
         <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/jquery.mobile.theme-1.4.5.css">
         
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+        <link rel="stylesheet" type="text/css" href="css/coupondunia-theme.css">
         
         <title>CouponDunia</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Resturaunt Offers</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
         
+        <div id="restaurautOffersPage" data-role="page">
+
+            <div data-role="header" data-position="fixed">
+                <h1>Page Title</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <ul data-role="listview">
+                    <li><a href="#"></a></li>
+                </ul>
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+        
+        
+    </body>
         <!--js/resources-->
         <script type="text/javascript" src="js/resources/applicationResources.js"></script>
         
@@ -70,10 +80,10 @@
         
         <script type="text/javascript" src="js/libs/object.utilites.js"></script>
         <script type="text/javascript" src="js/libs/network.utilites.js"></script>
+        <script type="text/javascript" src="js/libs/database.utilities.js"></script>
         
         <script type="text/javascript" src="cordova.js"></script>
         
-        <script type="text/javascript" src="js/index.js"></script>
-        
-    </body>
+        <!--<script type="text/javascript" src="js/index.js"></script>-->
+        <script type="text/javascript" src="js/restaurantOffers.js"></script>
 </html>
