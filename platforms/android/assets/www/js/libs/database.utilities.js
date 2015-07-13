@@ -45,16 +45,14 @@ function insertValuesIntoRestaurantTable (restaurantData) {
         var restaurantName = restaurantDataValues.OutletName;
         var logoURL = restaurantDataValues.logoURL;
         var offers = restaurantDataValues.NumCoupons;
-        var cuisine = "{";
-        var cuisineIdCounter = 0;
+        var cuisine = "{\"Cuisine\":[";
         $.each(restaurantDataValues.Categories, function (categoryID, catogoryDetails) {
             if (catogoryDetails.CategoryType === "Cuisine")
-            {
-                cuisine += cuisineIdCounter++ + catogoryDetails.Name + ",";
-            }
+            cuisine += "\"" + catogoryDetails.Name + "\","
             /*debugger;*/
         });
         cuisine = cuisine.substring(0,cuisine.lastIndexOf(","));
+        cuisine += "]}"
         debugger;
         var neighbourhoodName = restaurantDataValues.NeighbourhoodName;
         var lattitude = restaurantDataValues.Latitude;
@@ -62,6 +60,5 @@ function insertValuesIntoRestaurantTable (restaurantData) {
     });
     debugger;
     databaseObject = accessDatabase();
-//    databaseObject.transaction(insertRestaurantTableData, insertRestaurantTableDataFailed, insertRestaurantTableDataSucceeded);
 }
 
