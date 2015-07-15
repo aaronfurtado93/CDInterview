@@ -44,16 +44,16 @@ function getCurrentLocation()
         longitude: null
     }
     
+    //REPLACE IF WITH DO WHILE
     if(isBlankNullUndefined(deviceLatitude) || isBlankNullUndefined(deviceLongitude)) {
-        // Options: throw an error if no update is received every 30 seconds.
-        //
-        navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: false });
+        do {
+            navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: false });
+        }
+        while (isBlankNullUndefined(deviceLatitude) || isBlankNullUndefined(deviceLongitude));
     }
     
     currentLocation.latitude = deviceLatitude;
     currentLocation.longitude = deviceLongitude;
-    
-    debugger;
     
     return currentLocation;    
 }

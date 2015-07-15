@@ -5,10 +5,8 @@ navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { 
 function populateListView (dataJson) {
     restaurantData = dataJson.data;
     
-    console.log(restaurantData);
     createRestaurantTableIfNotExists();
     insertValuesIntoRestaurantTable(restaurantData);
-//    debugger;
 }
 
 function onSuccesRestaurantOffers (data, textStatus, jqXHR) {
