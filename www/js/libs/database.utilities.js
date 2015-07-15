@@ -15,8 +15,9 @@ function createRestaurantTable(tx) {
     query += "offers Numeric(10),";
     query += "cuisine Varchar(5000),";
     query += "neighbourhoodName Varchar(50),";
-    query += "lattitude Numeric(4,6),";
-    query += "longitude Numeric(4,6)";
+    query += "latitude Numeric(4,6),";
+    query += "longitude Numeric(4,6),";
+    query += "distance Numeric(3)";
     query += ")"; //endColumnsDefinition
     tx.executeSql(query);
 }
@@ -49,14 +50,15 @@ function insertValuesIntoRestaurantTable (restaurantData) {
         $.each(restaurantDataValues.Categories, function (categoryID, catogoryDetails) {
             if (catogoryDetails.CategoryType === "Cuisine")
             cuisine += "\"" + catogoryDetails.Name + "\","
-            /*debugger;*/
         });
         cuisine = cuisine.substring(0,cuisine.lastIndexOf(","));
         cuisine += "]}"
         debugger;
         var neighbourhoodName = restaurantDataValues.NeighbourhoodName;
-        var lattitude = restaurantDataValues.Latitude;
+        var latitude = restaurantDataValues.Latitude;
         var longitude = restaurantDataValues.Longitude;
+        var distance = calculateDistanceFromCurrentLocation(latitude, longitude);
+        debugger;
     });
     debugger;
     databaseObject = accessDatabase();
