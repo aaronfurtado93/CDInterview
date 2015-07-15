@@ -1,3 +1,5 @@
+navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: false });
+
 /*<li><a href="#"></a></li>*/
 
 function populateListView (dataJson) {
