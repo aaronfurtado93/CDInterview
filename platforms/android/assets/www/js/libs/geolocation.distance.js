@@ -1,5 +1,5 @@
-var deviceLatitude = "";
-var deviceLongitude = "";
+var deviceLatitude = sessionStorage.getItem("deviceLatitude");
+var deviceLongitude = sessionStorage.getItem("deviceLongitude");
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
   var R = 6371; // Radius of the earth in km
@@ -25,8 +25,8 @@ function deg2rad(deg) {
 //   the current GPS coordinates
 //
 function onGeolocationSuccess(position) {
-    deviceLatitude = position.coords.latitude;
-    deviceLongitude = position.coords.longitude;
+    sessionStorage.setItem("deviceLatitude",position.coords.latitude);
+    sessionStorage.setItem("deviceLongitude",position.coords.longitude);
     debugger;
 }
 
@@ -39,29 +39,19 @@ function onGeolocationError(error) {
 
 function getCurrentLocation()
 {
-    var currentLocation = {
-        latitude: null,
-        longitude: null
-    }
     
     //REPLACE IF WITH DO WHILE
-    if(isBlankNullUndefined(deviceLatitude) || isBlankNullUndefined(deviceLongitude)) {
         do {
             navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: false });
+            debugger;
         }
-        while (isBlankNullUndefined(deviceLatitude) || isBlankNullUndefined(deviceLongitude));
-    }
-    
-    currentLocation.latitude = deviceLatitude;
-    currentLocation.longitude = deviceLongitude;
-    
-    return currentLocation;    
+        while (isBlankNullUndefined(deviceLatitude) || isBlankNullUndefined(deviceLongitude));    
 }
 
 function calculateDistanceFromCurrentLocation (latitude, longitude) {
-    var currentLocation = getCurrentLocation ();
+    /*getCurrentLocation ();*/
     
-    var distanceInKm = getDistanceFromLatLonInKm (currentLocation.latitude, currentLocation.longitude, latitude, longitude);
+    var distanceInKm = getDistanceFromLatLonInKm (sessionStorage.getItem("deviceLatitude"), sessionStorage.getItem("deviceLongitude"), latitude, longitude);
     
     return distanceInKm;
 }
