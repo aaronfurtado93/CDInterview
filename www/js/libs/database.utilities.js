@@ -50,9 +50,9 @@ function insertRestaurantTableDataFailed (error) {
 
 function insertRestaurantTableDataSucceeded () {
     console.info("insertRestaurantTableData Succeeded");
-}
 
-//====================================================================================================
+    selectRestaurantDataOrderByDistance ();
+}
 
 function insertValuesIntoRestaurantTable (restaurantData) {
     
@@ -125,7 +125,34 @@ function insertValuesIntoRestaurantTable (restaurantData) {
         databaseObject.transaction(insertRestaurantTableData, insertRestaurantTableDataFailed, insertRestaurantTableDataSucceeded);
         
     });
-    debugger;
     
 }
 
+//====================================================================================================
+
+function selectRestaurantDataOrderByDistanceFailed (error) {
+    console.error("selectRestaurantDataOrderByDistance Failed");
+    console.error("Error message: " + error);
+}
+
+function selectRestaurantDataOrderByDistanceSucceeded () {
+    console.info("selectRestaurantDataOrderByDistance Succeeded");
+}
+
+function resultRestaurantData (tx, results)
+{
+    populateListView (results);
+}
+
+function selectRestaurantData(tx)
+{
+    var query = "select * from temp_Restaurant_Table order by distance asc";
+    tx.executeSql(query,[],resultRestaurantData);
+}
+
+function selectRestaurantDataOrderByDistance()
+{
+    var databaseObject = accessDatabase();
+    
+    databaseObject.transaction(selectRestaurantData, selectRestaurantDataOrderByDistanceFailed, selectRestaurantDataOrderByDistanceSucceeded);
+}

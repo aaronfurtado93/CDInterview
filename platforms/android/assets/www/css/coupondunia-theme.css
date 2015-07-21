@@ -1,9 +1,61 @@
-.toolTitleBar
+.title-bar
 {
-    height: 50px;
-    color: rgb(255, 255, 255);
-    font-size: 32px;
-    padding-top: 8px;
-    background-color: #3498DB;
-    text-shadow: rgb(0, 0, 0) 0px 0px 0px;
+    
+    height: 48px;
+    font-size: 24px;
+    margin: 0px;
+    padding-top: 0px;
+}
+
+.title-bar-text
+{
+    
+    padding: 8px;
+}
+
+.page-backgroud
+{
+    background: rgb(237, 237, 237);
+}
+
+.restaurant-cards-list-view
+{
+    position: relative;
+    top: 48px;
+}
+
+.restaurant-card-image-holder{
+    display: table-cell;
+    width: 40%;
+    padding: 5px;
+}
+
+.restaurant-card-image
+{
+    padding: 2px;
+}
+
+.restaurant-name
+{ 
+    padding: 10px;
+    vertical-align: top;
+    display: table-cell;
+    position: relative;
+    font-size: 26px;
+    /* top: -82px; */
+}
+
+.restaurant-card{
+    height: 150px;
+}
+
+.restaurant-card-content{
+    color: black;
+    background: white;
+    /*border: black;*/
+    border-width: 1px;
+    border-radius: 7px;
+    height: 100%;
+    margin: 10px;
+    /*border-style: solid;*/
 }

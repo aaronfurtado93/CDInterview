@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://staging.couponapitest.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://staging.couponapitest.com http://www.coupondunia.in/ 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -44,15 +44,26 @@
         <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/jquery.mobile.inline-svg-1.4.5.css">
         <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.css">
         <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/jquery.mobile.theme-1.4.5.css">
+        <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/cd-interview.css">
+        <link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile-1.4.5/jquery.mobile.icons.min.css">
+        
         
         <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
         <link rel="stylesheet" type="text/css" href="css/coupondunia-theme.css">
         
         <title>CouponDunia</title>
     </head>
-    <body>
+    <body id="app">
         
-        <div id="app">
+        <div data-role="page">
+            <div data-role="header" data-position="fixed" class="title-bar">
+                <div class="title-bar-text">
+                    Restaurant Offers
+                </div>
+            </div>
+            <div role="main" class="ui-content page-backgroud">
+                <ul id="restaurant-list" data-role="listview" class="restaurant-cards-list-view"></ul>
+            </div>
         </div>
         
         

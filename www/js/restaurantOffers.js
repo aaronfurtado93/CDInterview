@@ -1,12 +1,27 @@
-
-
-/*<li><a href="#"></a></li>*/
-
-function populateListView (dataJson) {
+function populateListViewTables (dataJson) {
     restaurantData = dataJson.data;
     
     createRestaurantTableIfNotExists();
+    
     insertValuesIntoRestaurantTable(restaurantData);
+}
+
+function populateListView (results)
+{
+    var restaurant_card_div;
+    $("#restaurant-list").html("");
+    $.each(results.rows, function(key,value){
+        restaurant_card_div = "<li id='restaurant_card_"+key+"' class='restaurant-card'>";
+        restaurant_card_div += "<div class='restaurant-card-content'>"; //card div
+        restaurant_card_div += "<div class='restaurant-card-image-holder'>"; //image div
+        restaurant_card_div += "<img src=" + value.logoURL + " class='restaurant-card-image'/>"
+        restaurant_card_div += "</div>"; //image-div
+        restaurant_card_div += "<div class='restaurant-name'>" + value.restaurantName + "</div>"; //name div
+        restaurant_card_div += "</div>";
+        restaurant_card_div += "</li>";
+        
+        $("#restaurant-list").append(restaurant_card_div);
+    });
 }
 
 function onSuccesRestaurantOffers (data, textStatus, jqXHR) {
@@ -16,7 +31,7 @@ function onSuccesRestaurantOffers (data, textStatus, jqXHR) {
     
     var dataJson = JSON.parse(data);
     
-    populateListView(dataJson);
+    populateListViewTables(dataJson);
 }
 
 function onErrorRestaurantOffers( jqXHR, textStatus, errorThrown ) {
