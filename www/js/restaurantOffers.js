@@ -1,4 +1,4 @@
-navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: false });
+
 
 /*<li><a href="#"></a></li>*/
 
@@ -19,6 +19,19 @@ function onSuccesRestaurantOffers (data, textStatus, jqXHR) {
     populateListView(dataJson);
 }
 
+function onErrorRestaurantOffers( jqXHR, textStatus, errorThrown ) {
+    console.error("error");
+    console.error(jqXHR);
+    console.error(textStatus);
+    console.error(errorThrown);
+    if(textStatus === "error" && errorThrown === "")
+    {
+        console.info("using fallback data to continue test.");
+        ajaxCall({url:"/android_asset/www/js/resources/task_data.txt",dataType:"text",success:onSuccesRestaurantOffers});
+    }
+}
 
-
-ajaxCall({url:"http://staging.couponapitest.com/task_data.txt",dataType:"text",success:onSuccesRestaurantOffers});
+function executeRestaurantOffers ()
+{
+    ajaxCall({url:"http://staging.couponapitest.com/task_data.txt",dataType:"text",success:onSuccesRestaurantOffers,error:onErrorRestaurantOffers});
+}

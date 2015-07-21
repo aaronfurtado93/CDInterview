@@ -27,7 +27,6 @@ function deg2rad(deg) {
 function onGeolocationSuccess(position) {
     deviceLatitude = position.coords.latitude;
     deviceLongitude = position.coords.longitude;
-    debugger;
 }
 
 // onError Callback receives a PositionError object

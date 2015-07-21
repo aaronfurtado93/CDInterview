@@ -45,6 +45,12 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         */
         console.log('Received Event: ' + id);
+        
+        if(id === "deviceready")
+        {
+            navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError, {enableHighAccuracy: true});
+            executeRestaurantOffers();  
+        }
     }
 };
 
