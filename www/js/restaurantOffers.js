@@ -1,4 +1,4 @@
-
+navigator.geolocation.watchPosition(onGeolocationSuccess, onGeolocationError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: false });
 
 /*<li><a href="#"></a></li>*/
 
@@ -19,7 +19,6 @@ function onSuccesRestaurantOffers (data, textStatus, jqXHR) {
     populateListView(dataJson);
 }
 
-function restaurantOffersExecute ()
-{
-    ajaxCall({url:"http://staging.couponapitest.com/task_data.txt",dataType:"text",success:onSuccesRestaurantOffers});
-}
+
+
+ajaxCall({url:"http://staging.couponapitest.com/task_data.txt",dataType:"text",success:onSuccesRestaurantOffers});
