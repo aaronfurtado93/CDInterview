@@ -89,7 +89,7 @@ function insertValuesIntoRestaurantTable (restaurantData) {
         
         if(cuisine === "]}")
         {
-            cuisine = "";
+            cuisine = " ";
         }
         
         var neighbourhoodName = restaurantDataValues.NeighbourhoodName;
