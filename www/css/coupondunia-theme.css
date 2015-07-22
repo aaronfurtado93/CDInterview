@@ -1,6 +1,5 @@
 .title-bar
 {
-    
     height: 48px;
     font-size: 24px;
     margin: 0px;
@@ -8,8 +7,7 @@
 }
 
 .title-bar-text
-{
-    
+{ 
     padding: 8px;
 }
 
@@ -26,27 +24,44 @@
 
 .restaurant-card-image-holder{
     display: table-cell;
-    width: 40%;
     padding: 5px;
 }
 
 .restaurant-card-image
 {
+    height: 75px;
     padding: 2px;
 }
 
 .restaurant-name
 { 
-    padding: 10px;
     vertical-align: top;
-    display: table-cell;
-    position: relative;
     font-size: 26px;
-    /* top: -82px; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .restaurant-card{
     height: 150px;
+}
+
+.restaurant-card-row
+{
+    display: table-row;
+}
+
+.restaurant-card-cell
+{
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.restaurant-offers{
+    display: table-row;
 }
 
 .restaurant-card-content{
@@ -58,4 +73,21 @@
     height: 100%;
     margin: 10px;
     /*border-style: solid;*/
+}
+
+.favourite-icon-holder
+{
+    position: absolute;
+    right: 10px;
+}
+
+.cuisine-li
+{
+    font-size: 18px;
+    position: relative;
+    left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
 }
