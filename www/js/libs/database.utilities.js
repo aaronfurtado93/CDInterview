@@ -1,3 +1,6 @@
+var restaurantCountPreInsert = 0;
+var restaurantCountPostInsert = 0;
+
 function accessDatabase () {
     var databaseObject = window.openDatabase("CD_DB", "1.0", "CouponDunia Interview", 200000);
     return databaseObject;
@@ -50,14 +53,23 @@ function insertRestaurantTableDataFailed (error) {
 
 function insertRestaurantTableDataSucceeded () {
     console.info("insertRestaurantTableData Succeeded");
-
-    selectRestaurantDataOrderByDistance ();
+    restaurantCountPostInsert++;
+    if(restaurantCountPostInsert === restaurantCountPreInsert)
+    {
+        selectRestaurantDataOrderByDistance ();
+    }
 }
 
 function insertValuesIntoRestaurantTable (restaurantData) {
     
     databaseObject = accessDatabase();
     
+    restaurantCountPreInsert = 0;
+    $.each( restaurantData, function( restaurantDataID, restaurantDataValues ) {
+        restaurantCountPreInsert ++;
+    });
+    
+    restaurantCountPostInsert = 0;
     $.each( restaurantData, function( restaurantDataID, restaurantDataValues ) {
       /*console.log( restaurantDataID + ": " + restaurantDataValues );*/
         var temp_restaurantName = restaurantDataValues.OutletName;
@@ -123,7 +135,6 @@ function insertValuesIntoRestaurantTable (restaurantData) {
         }
         
         databaseObject.transaction(insertRestaurantTableData, insertRestaurantTableDataFailed, insertRestaurantTableDataSucceeded);
-        
     });
     
 }
