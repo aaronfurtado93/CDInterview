@@ -22,7 +22,7 @@ function populateListView (results)
         restaurant_card_div += "<div class='restaurant-offers'>" + value.offers + " offers</div>"; //offers div
         restaurant_card_div += "</div>"; //restaurant & offer info div
         restaurant_card_div += "<div class='restaurant-card-cell favourite-icon-holder'>"; //favourite icon div
-        restaurant_card_div += "<img src='' height='25px' width='25px'/>";
+        restaurant_card_div += "<img src='/android_asset/www/img/ic_heart_unselected.png' height='25px' width='25px'/>";
         restaurant_card_div += "</div>"; //favourite icon div end
         restaurant_card_div += "</div>"; // row 1 end
         restaurant_card_div += "<div class='restaurant-card-row cuisine-li' style='width:" + ($(window).width() * 0.85) + "px;'>"; // row 2
@@ -37,7 +37,25 @@ function populateListView (results)
         }
         
         restaurant_card_div += "</div>"; // row 2 end
-        restaurant_card_div += "<div class='restaurant-card-row'>"; //row 3
+        restaurant_card_div += "<div class='restaurant-card-row distance-li' style='width:" + ($(window).width() * 0.85) + "px;'>";  //row 3
+        
+        var distance = value.distance;
+        var distanceString = " ";
+        if(distance > 1000)
+        {
+            distance /= 1000;
+            distance = Math.ceil(distance);
+            distanceString += distance + " Km";
+        }
+        else
+        {
+            distance = Math.ceil(distance);
+            distanceString += distance + " m";
+        }
+        
+        restaurant_card_div += "<img src='/android_asset/www/img/ic_action_location_blue.png' height='21px'/>";
+        restaurant_card_div += "<div class='distance-value'>" + distanceString + "</div>";
+        restaurant_card_div += "<div class='distance-value'>" + value.neighbourhoodName + "</div>";
         restaurant_card_div += "</div>"; // row 3 end
         restaurant_card_div += "</div>"; //card div end
         restaurant_card_div += "</li>";

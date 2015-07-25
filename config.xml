@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--VERSION NUMBER-->
 <!--[Major-Update].[Minor-Update].[Major-BugFix].[Build-Number]-->
-<widget id="com.afsoftwarestudios.cdinterview" version="1.0.0.141" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.afsoftwarestudios.cdinterview" version="1.0.0.147" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CDInterveiw</name>
     <description>
         A sample Apache Cordova based application in Android that I created for my interview process at CouponDunia.

@@ -1,9 +1,14 @@
 .title-bar
 {
+    background: rgb(52,152,219);
     height: 48px;
     font-size: 24px;
     margin: 0px;
     padding-top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0px 3px 9px #888888;
 }
 
 .title-bar-text
@@ -14,12 +19,14 @@
 .page-backgroud
 {
     background: rgb(237, 237, 237);
+    padding: 0em;
 }
 
 .restaurant-cards-list-view
 {
     position: relative;
-    top: 48px;
+    top: 80px;
+    padding: 1em;
 }
 
 .restaurant-card-image-holder{
@@ -35,6 +42,7 @@
 
 .restaurant-name
 { 
+    color: black;
     vertical-align: top;
     font-size: 26px;
     text-overflow: ellipsis;
@@ -65,7 +73,7 @@
 }
 
 .restaurant-card-content{
-    color: black;
+    color: rgb(126, 128, 131);
     background: white;
     /*border: black;*/
     border-width: 1px;
@@ -73,6 +81,7 @@
     height: 100%;
     margin: 10px;
     /*border-style: solid;*/
+    box-shadow: 0px 0px 3px #888888;
 }
 
 .favourite-icon-holder
@@ -90,4 +99,24 @@
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
+}
+
+.distance-li{
+    font-size: 18px;
+    position: relative;
+    left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: top;
+    height: 21px;
+}
+
+.distance-value
+{
+    width: 80px;
+    display: inline-block;
+    vertical-align: inherit;
+    padding-left: 10px;
 }
