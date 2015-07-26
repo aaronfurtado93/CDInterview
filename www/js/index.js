@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('taphold', this.onTapHold, false);
     },
     // deviceready Event Handler
     //
@@ -34,6 +35,9 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+    },
+    onTapHold: function() {
+        app.receivedEvent('taphold');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -46,10 +50,16 @@ var app = {
         */
         console.log('Received Event: ' + id);
         
+        $(".tab").width($(document).width()*0.32);
+        
         if(id === "deviceready")
         {
             navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError, {enableHighAccuracy: true});
             executeRestaurantOffers();  
+        }
+        else if(id === "taphold")
+        {
+        
         }
     }
 };
