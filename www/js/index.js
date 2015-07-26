@@ -58,6 +58,8 @@ var app = {
         
         if(id === "deviceready")
         {
+            $.mobile.loading( "show");
+            
             navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError, {enableHighAccuracy: true});
             
             executeRestaurantOffers();  

@@ -1,3 +1,5 @@
+var restaurantCountPostSelect = 0;
+
 function populateListViewTables (dataJson) {
     restaurantData = dataJson.data;
     
@@ -10,6 +12,8 @@ function populateListView (results)
 {
     var restaurant_card_div;
     $("#restaurant-list").html("");
+    
+    restaurantCountPostSelect = 0;
     $.each(results.rows, function(key,value){
         restaurant_card_div = "<li id='restaurant_card_"+key+"' class='restaurant-card'>";
         restaurant_card_div += "<div class='restaurant-card-content'>"; //card div
@@ -61,7 +65,15 @@ function populateListView (results)
         restaurant_card_div += "</li>";
         
         $("#restaurant-list").append(restaurant_card_div);
+        
+        restaurantCountPostSelect++;
+        
+        if(restaurantCountPostSelect === restaurantCountPostInsert)
+        {
+            $.mobile.loading( "hide");
+        }
     });
+    
 }
 
 function onSuccesRestaurantOffers (data, textStatus, jqXHR) {
