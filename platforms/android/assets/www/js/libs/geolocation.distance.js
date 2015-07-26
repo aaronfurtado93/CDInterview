@@ -64,3 +64,22 @@ function calculateDistanceFromCurrentLocation (latitude, longitude) {
     
     return distanceInMeters;
 }
+
+function findLocality ()
+{
+    var geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(deviceLatitude, deviceLongitude);
+    geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                $("#locality_field").html("" + results[0].address_components[3].long_name);
+            } else {
+                $("#locality_field").html("Unknown Location");
+            }
+        } else {
+            $("#locality_field").html("Unknown Location");
+            console.error('Geocoder failed due to: ' + status);
+        }
+    });
+}
+

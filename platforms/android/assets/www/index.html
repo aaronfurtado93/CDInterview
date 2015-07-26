@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://staging.couponapitest.com http://www.coupondunia.in/ 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://staging.couponapitest.com http://www.coupondunia.in/ https://maps.googleapis.com/ https://maps.gstatic.com/ https://csi.gstatic.com/ 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -56,8 +56,10 @@
     <body id="app">
         
         <div data-role="page">
+            
             <div role="main" class="ui-content page-backgroud">
                 <div class="title-bar">
+                    <div href="cdDummyPanel" class="title-bar-text hamburger-icon"></div>
                     <div class="title-bar-text">
                         <img src="/android_asset/www/img/ic_notif_small_icon.png" class="title-bar-icon">
                     </div>
@@ -79,14 +81,25 @@
                 </div>
                 <div class="tab-bar">
                     <div class="tab-bar-text">
-                        <div class="tab">IN YOUR CITY</div><div class="tab">NEARBY</div><div class="tab">BEST OFFERS</div>
+                        <div class="tab" id="tab_1">
+                            IN YOUR CITY
+                            <div id="tab_1_selector"></div>
+                        </div>
+                        <div class="tab" id="tab_2">
+                            NEARBY
+                            <div id="tab_2_selector" class="tab-selector-active"></div>
+                        </div>
+                        <div class="tab" id="tab_3">
+                            BEST OFFERS
+                            <div id="tab_3_selector"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="location-field">
                 <div class="location-field-icon-holder">
                     <img src="/android_asset/www/img/ic_places.png" class="location-field-icon">
                 </div>
-                <div class="location-field-neighbourhood">Andheri</div>
+                <div class="location-field-neighbourhood" id="locality_field"></div>
                 </div>
                 <ul id="restaurant-list" data-role="listview" class="restaurant-cards-list-view"></ul>
             </div>
@@ -94,23 +107,25 @@
         
         
     </body>
-        <!--js/resources-->
-        <script type="text/javascript" src="js/resources/applicationResources.js"></script>
+    <!--js/resources-->
+    <script type="text/javascript" src="js/resources/applicationResources.js"></script>
+
+    <!--js/libs-->
+    <script type="text/javascript" src="js/libs/jquery-2.1.4/jquery-2.1.4.js"></script>
+
+    <script type="text/javascript" src="js/libs/jquery-ui-1.11.4/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="js/libs/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
         
-        <!--js/libs-->
-        <script type="text/javascript" src="js/libs/jquery-2.1.4/jquery-2.1.4.js"></script>
-        
-        <script type="text/javascript" src="js/libs/jquery-ui-1.11.4/jquery-ui.js"></script>
-        
-        <script type="text/javascript" src="js/libs/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
-        
-        <script type="text/javascript" src="js/libs/object.utilites.js"></script>
-        <script type="text/javascript" src="js/libs/network.utilites.js"></script>
-        <script type="text/javascript" src="js/libs/geolocation.distance.js"></script>
-        <script type="text/javascript" src="js/libs/database.utilities.js"></script>
-        
-        <script type="text/javascript" src="cordova.js"></script>
-        
-        <script type="text/javascript" src="js/restaurantOffers.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/libs/object.utilites.js"></script>
+    <script type="text/javascript" src="js/libs/network.utilites.js"></script>
+    <script type="text/javascript" src="js/libs/geolocation.distance.js"></script>
+    <script type="text/javascript" src="js/libs/database.utilities.js"></script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="js/restaurantOffers.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>

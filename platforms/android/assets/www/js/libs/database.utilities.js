@@ -64,6 +64,8 @@ function insertValuesIntoRestaurantTable (restaurantData) {
     
     databaseObject = accessDatabase();
     
+    findLocality();
+    
     restaurantCountPreInsert = 0;
     $.each( restaurantData, function( restaurantDataID, restaurantDataValues ) {
         restaurantCountPreInsert ++;

@@ -28,6 +28,7 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.addEventListener('taphold', this.onTapHold, false);
+        document.addEventListener('tap', this.onTap, false);
     },
     // deviceready Event Handler
     //
@@ -38,6 +39,9 @@ var app = {
     },
     onTapHold: function() {
         app.receivedEvent('taphold');
+    },
+    onTap: function() {
+        app.receivedEvent('tap');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -55,12 +59,18 @@ var app = {
         if(id === "deviceready")
         {
             navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError, {enableHighAccuracy: true});
+            
             executeRestaurantOffers();  
         }
         else if(id === "taphold")
         {
         
         }
+        else if(id === "tap")
+        {
+            
+        }
+        
     }
 };
 
